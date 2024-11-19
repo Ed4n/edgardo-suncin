@@ -1,0 +1,104 @@
+---
+import PhoneIcon from '../assets/icons/PhoneIcon.astro'
+import MailIcon from '../assets/icons/Mail.astro'
+import WhatsappIcon from '../assets/icons/Whatsapp.astro'
+import LinkedinIcon from '../assets/icons/Linkedin.astro'
+
+
+const rs = [
+  {
+    name: "Phone",
+    icon: PhoneIcon,
+    link: "tel:+573004567890",
+  },
+  {
+    name: "Mail",
+    icon: MailIcon,
+    link: "mail@gmail.com"
+  },
+  {
+    name: "Whatsapp",
+    icon: WhatsappIcon,
+    link: "https://wa.me/573004567890"
+  },
+  {
+    name: "Linkedin",
+    icon: LinkedinIcon,
+    link: "https://www.linkedin.com/in/edgardo-valencia/"
+  }
+]
+
+const skills = ["React", "Next", "Astro", "Node", "Express", "MongoDB", "Figma", "SwiftUI"]
+---
+
+<header class="bg-mirage-950 w-full h-screen text-mirage-50 flex flex-col lg:flex-row gap-12 justify-between items-center p-16 ">
+<!-- Left Section -->
+<section class="w-full lg:w-[60%] h-full flex flex-col gap-3 justify-center items-center lg:items-start">
+<div>
+<h1 class="text-9xl text-center lg:text-start" >Edgardo <br>Suncin</h1>
+<br>
+<h2 class="text-5xl">Frontend Web Developer</h2>
+<br>
+</div>
+
+<p class="text-xl text-center lg:text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, soluta accusamus perspiciatis nulla, <br> nobis rem repellat ut consectetur suscipit fugiat, labore sapiente eius adipisci!</p>
+
+<!-- Icons Container -->
+<div class="flex gap-2 justify-center lg:justify-start items-center">
+{
+  rs.map((item, i) => (
+    <Fragment key={i}>
+      <a href={item.link}>
+        <item.icon/>
+      </a>
+    </Fragment>
+  ))
+}
+</div>
+<br>
+<!-- Skills -->
+<div class="flex justify-center lg:justify-start gap-7 text-xl max-w-[500px] flex-wrap">
+{
+  skills.map((skill, i) => (
+    <span class="" key={i}>{skill}</span>
+  ))
+}</div>
+</section>
+
+<!-- Right Section -->
+<nav class="w-full lg:w-[40%] pr-12 h-full ">
+    <ul class="w-full h-full flex flex-col gap-10 lg:gap-7 justify-center items-start">
+        <li>
+            <a href="#about">About</a>
+        </li>
+        <li>
+            <a href="#experience">Experience</a>
+        </li>
+        <li>
+            <a href="#projects">Projects</a>
+        </li>
+    </ul>
+</nav>
+</header>
+
+
+<style>
+li {
+    width: 100%;
+    border-bottom: solid var(--mirage-50) 0.2px;
+    padding-bottom: 7px;
+}
+
+li a {
+    font-size: 1.5rem;
+}
+
+
+@media screen and (max-width: 1080px) {
+li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+}
+</style>

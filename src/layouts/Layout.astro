@@ -1,0 +1,38 @@
+---
+import Header from '../components/Header.astro'
+import About from '../components/About.astro'
+import Projects from '../components/Projects.astro'
+
+interface Props {
+  title: string
+}
+
+const {title} = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+
+:root {
+    --mirage-50: #f6f6f9;
+}
+
+.header-icon {
+    width: 50px;
+    height: 50px;
+    fill: var(--mirage-50);
+}
+
+</style>
