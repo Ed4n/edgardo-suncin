@@ -1,0 +1,152 @@
+---
+import Link from "./Link.astro";
+
+const workingExperience = [
+  {
+    title: "Calhome Program App",
+    description: "A Web Application to manage California citizens' Calhome Program loans.",
+    link: "#"
+  },
+  {
+    title: "Pet App ",
+    description: "A web application for managing pet licenses and vaccines in La Puente City.",
+    link: "#"
+  },
+  {
+    title: "LA n Sync ",
+    description: "A complete system that manages Grant Writers, including a User, Grant Writer, and Admin system.",
+    link: "#"
+  },
+  {
+    title: "Calhome Landing Pages for The City of La Puente, Lynwood, and Norwalk ",
+    description: "Developed landing pages including all Calhome Program information for the City of La Puente, Lynwood, and Norwalk and lined them to the Calhome Program App that manage California citizens' Calhome Program loans .",
+    link: "#"
+  },
+]
+
+const workingUxExperience = [
+  {
+    title: "Web Page Design For Portable Consultants",
+    description: "Improve the design of Portable Consultants Web Page. ",
+    link: "#"
+  },
+  {
+    title: "Portable Consultants IT Service PlaybookConnect",
+    description: "Improve & create the UI & UX of Portable Consultants software Playbook Connect.",
+    link: "#"
+  },
+]
+
+---
+
+<section class="flex flex-col gap-5">
+<h1>Working Experience</h1>
+<!-- Workig Field -->
+<div class="flex text-mirage-900">
+    <div class=" flex flex-col gap-3 items-center mt-5">
+        <div class="w-[10px] h-[10px] bg-mirage-950/50 rounded-full"></div>
+        <div class="w-[2px] h-full bg-mirage-950/40"></div>
+    </div>
+    <div class="ml-8 w-[98%] flex flex-col justify-start gap-2">
+        <h3>
+            Frontend Web Developer
+        </h3>
+        <b>
+            Global Urban Strategies
+        </b>
+        <span class="italic">2022–2024</span>
+        <p>
+            Global Urban Strategies is a full-service consulting agency that works with brands, businesses, and municipalities.
+        </p>
+    </div>
+</div>
+
+<!-- Workig Experience -->
+{
+  workingExperience.map(item => (
+    <div class="flex text-mirage-900">
+        <div class=" flex flex-col gap-3 items-center mt-3">
+            <div class="w-[10px] h-[10px] bg-mirage-950/50 rounded-full"></div>
+            <div class="w-[2px] h-full bg-mirage-950/40"></div>
+        </div>
+        <div class="ml-8 w-[98%] flex flex-col justify-start gap-2">
+            <b>
+          {item.title}
+            </b>
+
+            <p>
+              {item.description}
+            </p>
+
+          <Link title="see project" link={item.link} />
+        </div>
+    </div>
+    ))
+}
+
+  <!-- Workig Field -->
+  <div class="flex text-mirage-900">
+      <div class=" flex flex-col gap-3 items-center mt-5">
+          <div class="w-[10px] h-[10px] bg-mirage-950/50 rounded-full"></div>
+          <div class="w-[2px] h-full bg-mirage-950/40"></div>
+      </div>
+      <div class="ml-8 w-[98%] flex flex-col justify-start gap-2">
+          <h3>
+          UI & UX Designer
+          </h3>
+          <b>
+          Freelance
+          </b>
+          <span class="italic">2022–2024</span>
+      </div>
+  </div>
+</section>
+
+<!-- Workig Experience -->
+{
+  workingUxExperience.map(item => (
+  <div class="flex text-mirage-900">
+      <div class=" flex flex-col gap-3 items-center mt-3">
+          <div class="w-[10px] h-[10px] bg-mirage-950/50 rounded-full"></div>
+          <div class="w-[2px] h-full bg-mirage-950/40"></div>
+      </div>
+      <div class="ml-8 w-[98%] flex flex-col justify-start gap-2">
+          <b>
+        {item.title}
+          </b>
+
+          <p>
+            {item.description}
+          </p>
+
+        <Link title="see project" link={item.link} />
+      </div>
+  </div>
+  ))
+}
+
+<style>
+h1 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: #363347;
+}
+
+h3 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: bold;
+    color: #363347;
+}
+
+@media screen and (max-width: 1280px) {
+  h1 {
+      text-align: center;
+      font-size: 3.5rem;
+  }
+
+  h3 {
+      font-size: 2rem;
+  }
+}
+</style>
