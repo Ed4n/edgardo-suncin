@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export const getStaticPaths = async () => {
+    const projects = await getCollection("projects");
+    return projects.map((project) => ({
+        params: { id: project.slug },
+        props: { project },
+    }));
+};
+
+const { project } = Astro.props;
+const { data } = project;
+const { title, img } = data;
+
+const { Content } = await render(project);
+---
+
+<Layout title={title}>
+    <main class="p-16 bg-mirage-50">
+        <div class="w-full h-[300px] rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-full object-cover" src={img} alt="" />
+        </div>
+        <div></div>
+        <h1>{title}</h1>
+        <Content />
+    </main>
+</Layout>
+
+<style>
+    h1 {
+        font-size: 5rem;
+        font-weight: bold;
+        color: var(--mirage-900);
+    }
+
+    p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        color: var(--mirage-900);
+    }
+
+    h3 {
+        font-size: 2rem;
+        line-height: 1.5;
+        font-weight: bold;
+        color: var(--mirage-900);
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 2rem;
+    }
+</style>

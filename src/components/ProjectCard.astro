@@ -1,0 +1,42 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    img: string;
+    slug: string;
+}
+
+const { title, description, img, slug } = Astro.props;
+---
+
+<a
+    href={`/project/${slug}`}
+    class="flex-shrink-0 w-96 h-[600px] bg-mirage-700 m-2 rounded-xl snap-center overflow-hidden shadow-xl relative flex justify-center items-center"
+>
+    <img class="w-full h-full object-cover" src={img} alt="" />
+    <div class="w-full h-full absolute bg-mirage-90000/60 z-10"></div>
+
+    <div
+        class="w-[95%] h-[30%] glass-bg rounded-lg bottom-8 absolute z-20 p-8 text-mirage-50"
+    >
+        <h3>{title}</h3>
+        <p>{description}</p>
+    </div>
+</a>
+
+<style>
+    h3 {
+        font-size: 1.7rem;
+        line-height: 1.2;
+        font-weight: bold;
+        color: white;
+    }
+
+    .glass-bg {
+        background: rgba(81, 78, 113, 0.73);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10.6px);
+        -webkit-backdrop-filter: blur(10.6px);
+        border: 1px solid rgba(127, 124, 160, 0.8);
+    }
+</style>

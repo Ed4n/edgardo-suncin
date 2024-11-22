@@ -1,39 +1,45 @@
-<section class="main w-full min-h-screen bg-mirage-800 flex justify-center items-center">
-<!-- Gallery -->
-<div class="flex w-full overflow-x-auto snap-x snap-mandatory wrapper snaps-inline">
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-  <div class="flex-shrink-0 w-96 h-96 bg-mirage-700 m-2 rounded-lg snap-center"></div>
-</div>
+---
+import ProjectCard from "./ProjectCard.astro";
+
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+---
+
+<section
+    class="main w-full min-h-screen bg-mirage-800 flex justify-center items-center p-12 lg:p-16"
+>
+    <div class="flex flex-col lg:flex-row gap-12 lg:gap-3 overflow-x-hidden">
+        <div
+            class="w-auto lg:w-[300px] lg:h-[600px] flex justify-center items-center"
+        >
+            <h1 class="lg:-rotate-90">Projects</h1>
+        </div>
+
+        <!-- Gallery -->
+        <div class="flex w-full overflow-x-scroll">
+            {
+                projects.map((project) => {
+                    const { data, slug } = project;
+                    const { title, description, img } = data;
+                    return (
+                        <ProjectCard
+                            slug={slug}
+                            title={title}
+                            description={description}
+                            img={img}
+                        />
+                    );
+                })
+            }
+        </div>
+    </div>
 </section>
 
 <style>
-
-main {
-      overscroll-behavior-inline: contain;
-}
-
-.wrapper {
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-}
-
-.snaps-inline {
-  scroll-snap-type: inline mandatory;
-  scroll-padding-inline: var(--_spacer, 1rem);
-}
-
-.snaps-inline > * {
-  scroll-snap-align: start;
-}
-
+    h1 {
+        font-size: 5rem;
+        font-weight: bold;
+        color: var(--mirage-50);
+    }
 </style>
