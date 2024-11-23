@@ -1,4 +1,6 @@
 ---
+import { textShorten } from "../utils/utils";
+
 interface Props {
     title: string;
     description: string;
@@ -7,6 +9,8 @@ interface Props {
 }
 
 const { title, description, img, slug } = Astro.props;
+
+const shortenTitle = textShorten(title, 100);
 ---
 
 <a
@@ -17,9 +21,9 @@ const { title, description, img, slug } = Astro.props;
     <div class="w-full h-full absolute bg-mirage-90000/60 z-10"></div>
 
     <div
-        class="w-[95%] h-[30%] glass-bg rounded-lg bottom-8 absolute z-20 p-8 text-mirage-50"
+        class="w-[95%] min-h-[30%] glass-bg rounded-lg bottom-8 absolute z-20 p-8 text-mirage-50"
     >
-        <h3>{title}</h3>
+        <h3>{shortenTitle}</h3>
         <p>{description}</p>
     </div>
 </a>

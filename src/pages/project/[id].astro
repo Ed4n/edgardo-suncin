@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import Prose from "../../components/Prose.astro";
 
 export const getStaticPaths = async () => {
     const projects = await getCollection("projects");
@@ -18,21 +19,25 @@ const { Content } = await render(project);
 ---
 
 <Layout title={title}>
-    <main class="p-16 bg-mirage-50">
-        <div class="w-full h-[300px] rounded-xl shadow-lg overflow-hidden">
-            <img class="w-full h-full object-cover" src={img} alt="" />
-        </div>
-        <div></div>
-        <h1>{title}</h1>
-        <Content />
-    </main>
+    <div class="p-16 bg-mirage-100 flex justify-center">
+        <main class="w-full h-full max-w-[800px]">
+            <div class="w-full h-[300px] rounded-xl shadow-lg overflow-hidden">
+                <img class="w-full h-full object-cover" src={img} alt="" />
+            </div>
+            <div></div>
+            <h1>{title}</h1>
+            <Prose>
+                <Content />
+            </Prose>
+        </main>
+    </div>
 </Layout>
 
 <style>
     h1 {
-        font-size: 5rem;
+        font-size: 4rem;
         font-weight: bold;
-        color: var(--mirage-900);
+        color: #363347;
     }
 
     p {
@@ -45,7 +50,7 @@ const { Content } = await render(project);
         font-size: 2rem;
         line-height: 1.5;
         font-weight: bold;
-        color: var(--mirage-900);
+        color: #363347;
     }
 
     ul {
