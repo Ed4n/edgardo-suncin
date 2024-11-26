@@ -7,7 +7,11 @@ interface Props {
 const { title, link } = Astro.props;
 ---
 
-<a href={link} class="flex items-center gap-2 underline text-mirage-950">
+<a
+  href={link}
+  target="_blank"
+  class="flex items-center gap-2 underline text-mirage-950"
+>
   {title}
 
   <svg
