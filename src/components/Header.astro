@@ -4,6 +4,7 @@ import MailIcon from "../assets/icons/Mail.astro";
 import WhatsappIcon from "../assets/icons/Whatsapp.astro";
 import LinkedinIcon from "../assets/icons/Linkedin.astro";
 import GithubIcon from "../assets/icons/GithubIcon.astro";
+import Resume from "../assets/icons/Resume.astro";
 
 const rs = [
   {
@@ -54,7 +55,15 @@ const skills = [
   >
     <div>
       <h1 class="text-7xl sm:text-9xl text-center lg:text-start">
-        Edgardo <br />Suncin
+        Edgardo <br />
+        <span class="flex items-center gap-5">
+          Suncin <a
+            class="mt-3 transition-all hover:scale-110"
+            href="/Resume.pdf"
+            target="_blank"
+            data-tooltip="Download Resume"><Resume /></a
+          ></span
+        >
       </h1>
       <br />
       <h2 class="text-center lg:text-start text-3xl lg:text-5xl">
@@ -163,6 +172,22 @@ const skills = [
     .dialog-email span {
       cursor: pointer;
       color: #ffffffcc;
+    }
+
+    [data-tooltip]:hover::after {
+      display: block;
+      min-width: 160px;
+      position: absolute;
+      content: attr(data-tooltip);
+      font-size: 16px;
+      color: white;
+      background: rgba(136, 132, 172, 0.4);
+      border-radius: 9px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(16.3px);
+      -webkit-backdrop-filter: blur(16.3px);
+      border: 1px solid rgba(136, 132, 172, 0.59);
+      padding: 20px 10px;
     }
 
     dialog button {
