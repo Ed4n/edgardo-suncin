@@ -19,16 +19,26 @@ const { Content } = await render(project);
 ---
 
 <Layout title={title}>
-    <div class="p-16 bg-mirage-100 flex justify-center">
+    <div class="p-6 lg:p-16 bg-mirage-100 flex justify-center">
         <main class="w-full h-full max-w-[800px]">
-            <div class="w-full h-[300px] rounded-xl shadow-lg overflow-hidden">
-            {
-            img != null  ? (<img class="w-full h-full object-cover" src={img} alt="" />) : (<div class="gradiant-box"></div>)
-            }
-
+            <div
+                class="w-full h-[150px] lg:h-[300px] rounded-xl shadow-lg overflow-hidden"
+            >
+                {
+                    img != null ? (
+                        <img
+                            class="w-full h-full object-cover"
+                            src={img}
+                            alt=""
+                        />
+                    ) : (
+                        <div class="gradiant-box" />
+                    )
+                }
             </div>
-            <div></div>
+            <br />
             <h1>{title}</h1>
+            <br />
             <Prose>
                 <Content />
             </Prose>
@@ -61,5 +71,21 @@ const { Content } = await render(project);
         padding-left: 2rem;
     }
 
+    @media screen and (max-width: 1280px) {
+        h1 {
+            text-align: center;
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
 
+        h3 {
+            font-size: 2rem;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        h1 {
+            font-size: 3rem;
+        }
+    }
 </style>

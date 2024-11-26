@@ -3,10 +3,11 @@ import WorkingExperience from "./WorkingExperience.astro";
 ---
 
 <section
-    class="w-full min-h-screen bg-mirage-50 p-16 text-[20px] flex flex-col xl:flex-row justify-start xl:justify-between items-center top-0"
+    id="about"
+    class="w-full min-h-screen bg-mirage-50 p-6 py-20 lg:p-16 text-[20px] flex flex-col xl:flex-row justify-start xl:justify-between items-center top-0"
 >
     <!-- Right -->
-    <div class="w-full order-2 xl::order-1 xl:w-[60%] xl::px-16">
+    <div class="w-full order-2 xl::order-1 xl:w-[60%] xl:px-16">
         <h1>About Me</h1>
         <br />
         <p>
@@ -36,10 +37,13 @@ import WorkingExperience from "./WorkingExperience.astro";
         class="w-full xl:w-[40%] order-1 xl:order-2 xl:h-screen xl:sticky top-0 right-0 flex justify-center items-center self-start mb-12 xl:mb-0"
     >
         <div class="flex flex-col gap-7 justify-center items-center">
-            <div class="w-[350px] h-[350px] rounded-full overflow-hidden">
-            <img class="w-full h-full object-cover" src="/me.jpg" alt=""></div>
+            <div
+                class="w-[180px] h-[180px] sm:w-[250px] sm:h-[250px] lg:w-[350px] lg:h-[350px] rounded-full overflow-hidden"
+            >
+                <img class="w-full h-full object-cover" src="/me.jpg" alt="" />
+            </div>
             <h2 class="text-3xl hidden xl:block text-mirage-700">
-            Crafting user experiences, <br> one pixel at a time.
+                Crafting user experiences, <br /> one pixel at a time.
             </h2>
         </div>
     </div>
@@ -56,6 +60,12 @@ import WorkingExperience from "./WorkingExperience.astro";
         h1 {
             text-align: center;
             font-size: 3.5rem;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        h1 {
+            font-size: 3rem;
         }
     }
 </style>

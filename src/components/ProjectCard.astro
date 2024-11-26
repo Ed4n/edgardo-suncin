@@ -10,16 +10,20 @@ interface Props {
 
 const { title, description, img, slug } = Astro.props;
 
-
-
 const shortenTitle = textShorten(title, 100);
 ---
 
 <a
     href={`/project/${slug}`}
-    class="flex-shrink-0 w-96 h-[600px] bg-mirage-700 m-2 rounded-xl snap-center overflow-hidden shadow-xl relative flex justify-center items-center"
+    class="flex-shrink-0 w-[250px] sm:w-96 h-[450px] sm:h-[500px] lg:h-[600px] bg-mirage-700 m-2 rounded-xl snap-center overflow-hidden shadow-xl relative flex justify-center items-center"
 >
-   {img != null  ? ( <img class="w-full h-full object-cover" src={img} alt="" />) : (<div class="gradiant-box"></div>)}
+    {
+        img != null ? (
+            <img class="w-full h-full object-cover" src={img} alt="" />
+        ) : (
+            <div class="gradiant-box" />
+        )
+    }
     <div class="w-full h-full absolute bg-mirage-90000/60 z-10"></div>
 
     <div
@@ -45,6 +49,4 @@ const shortenTitle = textShorten(title, 100);
         -webkit-backdrop-filter: blur(10.6px);
         border: 1px solid rgba(127, 124, 160, 0.8);
     }
-
-
 </style>
