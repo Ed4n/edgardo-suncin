@@ -181,11 +181,13 @@ const skills = [
   </style>
 
   <script>
-    const mail = document.querySelectorAll(".Mail");
-    const modal = document.querySelector("[data-modal]");
-    const closeModal = document.querySelector("[data-close-modal]");
+    const mail: NodeListOf<HTMLAnchorElement> =
+      document.querySelectorAll(".Mail")!;
+    const modal: HTMLDialogElement = document.querySelector("[data-modal]")!;
+    const closeModal: HTMLButtonElement =
+      document.querySelector("[data-close-modal]")!;
 
-    const copyButton = document.getElementById("copy-button");
+    const copyButton: HTMLSpanElement = document.getElementById("copy-button")!;
 
     mail.forEach((item) => {
       setTimeout(() => {
