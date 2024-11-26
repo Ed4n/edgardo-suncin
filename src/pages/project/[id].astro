@@ -22,7 +22,10 @@ const { Content } = await render(project);
     <div class="p-16 bg-mirage-100 flex justify-center">
         <main class="w-full h-full max-w-[800px]">
             <div class="w-full h-[300px] rounded-xl shadow-lg overflow-hidden">
-                <img class="w-full h-full object-cover" src={img} alt="" />
+            {
+            img != null  ? (<img class="w-full h-full object-cover" src={img} alt="" />) : (<div class="gradiant-box"></div>)
+            }
+
             </div>
             <div></div>
             <h1>{title}</h1>
@@ -57,4 +60,6 @@ const { Content } = await render(project);
         list-style-type: disc;
         padding-left: 2rem;
     }
+
+
 </style>

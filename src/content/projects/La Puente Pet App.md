@@ -1,6 +1,6 @@
 ---
 title: La Puente Pet App
-img: /LandingPagesIMG.png
+img:
 description: A Web Application to manage pets’ licenses and vaccines in La Puente City
 ---
 A Web Application to manage pets’ licenses and vaccines in La Puente City

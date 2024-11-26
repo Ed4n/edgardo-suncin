@@ -1,6 +1,6 @@
 ---
 title: Calhome Program App
-img: /LandingPagesIMG.png
+img:
 description: A Web Application to manage California citizens' Calhome Program loans.
 ---
 
