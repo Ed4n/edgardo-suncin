@@ -68,7 +68,7 @@ const skills = [
       {
         rs.map((item, i) => (
           <Fragment key={i}>
-            <a href={item.link} target="_blank">
+            <a class={`${item.name}`} href={item.link} target="_blank">
               <item.icon />
             </a>
           </Fragment>
@@ -100,24 +100,123 @@ const skills = [
       </li>
     </ul>
   </nav>
-</header>
 
-<style>
-  li {
-    width: 100%;
-    border-bottom: solid var(--mirage-50) 0.2px;
-    padding-bottom: 7px;
-  }
+  <dialog data-modal>
+    <b>Mail didn't open?</b>
+    <br /><br />
+    <div class="dialog-email">
+      edgardo.avalencia@gmail.com
+      <span id="copy-button">copy</span>
 
-  li a {
-    font-size: 1.5rem;
-  }
+      <button data-close-modal>Close</button>
+    </div>
+  </dialog>
 
-  @media screen and (max-width: 1080px) {
+  <style>
     li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      width: 100%;
+      border-bottom: solid var(--mirage-50) 0.2px;
+      padding-bottom: 7px;
     }
-  }
-</style>
+
+    li a {
+      font-size: 1.5rem;
+    }
+
+    dialog::backdrop {
+      /* From https://css.glass */
+      background: rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
+    }
+
+    dialog {
+      min-width: 400px;
+      padding: 30px 20px;
+      padding-bottom: 100px;
+      color: white;
+      position: relative;
+
+      /* From https://css.glass */
+      background: rgba(136, 132, 172, 0.4);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(16.3px);
+      -webkit-backdrop-filter: blur(16.3px);
+      border: 1px solid rgba(136, 132, 172, 0.59);
+    }
+
+    .dialog-email {
+      padding: 15px 25px;
+      background: rgba(0, 0, 0, 0.28);
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .dialog-email span {
+      cursor: pointer;
+      color: #ffffffcc;
+    }
+
+    dialog button {
+      position: absolute;
+      border-radius: 5px;
+      bottom: 15px;
+      right: 15px;
+      padding: 5px 20px;
+      background: #f6f6f9;
+
+      color: #3d3953;
+    }
+
+    @media screen and (max-width: 1080px) {
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  </style>
+
+  <script>
+    const mail = document.querySelectorAll(".Mail");
+    const modal = document.querySelector("[data-modal]");
+    const closeModal = document.querySelector("[data-close-modal]");
+
+    const copyButton = document.getElementById("copy-button");
+
+    mail.forEach((item) => {
+      setTimeout(() => {
+        item.addEventListener("click", () => {
+          modal.showModal();
+        });
+      }, 500);
+    });
+
+    closeModal.addEventListener("click", () => {
+      modal.close();
+    });
+
+    copyButton.addEventListener("click", () => {
+      // Select the text
+      const textToCopy = "edgardo.avalencia@gmail.com";
+
+      // Copy to clipboard
+      navigator.clipboard
+        .writeText(textToCopy)
+        .then(() => {
+          copyButton.textContent = "copied!";
+          copyButton.style.color = "#0C944E";
+          setTimeout(() => {
+            copyButton.textContent = "copy";
+            copyButton.style.color = "#FFFFFFCC";
+          }, 2000);
+        })
+        .catch((err) => {
+          console.error("Failed to copy text: ", err);
+        });
+    });
+  </script>
+</header>
