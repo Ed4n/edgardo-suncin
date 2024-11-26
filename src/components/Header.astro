@@ -3,27 +3,33 @@ import PhoneIcon from "../assets/icons/PhoneIcon.astro";
 import MailIcon from "../assets/icons/Mail.astro";
 import WhatsappIcon from "../assets/icons/Whatsapp.astro";
 import LinkedinIcon from "../assets/icons/Linkedin.astro";
+import GithubIcon from "../assets/icons/GithubIcon.astro";
 
 const rs = [
   {
     name: "Phone",
     icon: PhoneIcon,
-    link: "tel:+573004567890",
+    link: "tel:+50377279707",
   },
   {
     name: "Mail",
     icon: MailIcon,
-    link: "mail@gmail.com",
+    link: "mailto:edgardo.avalencia@gmail.com",
   },
   {
     name: "Whatsapp",
     icon: WhatsappIcon,
-    link: "https://wa.me/573004567890",
+    link: "https://wa.me/+50377279707",
   },
   {
     name: "Linkedin",
     icon: LinkedinIcon,
-    link: "https://www.linkedin.com/in/edgardo-valencia/",
+    link: "https://www.linkedin.com/in/edgardo-valencia-1a1832292/",
+  },
+  {
+    name: "Github",
+    icon: GithubIcon,
+    link: "https://github.com/Ed4n",
   },
 ];
 
@@ -62,7 +68,7 @@ const skills = [
       {
         rs.map((item, i) => (
           <Fragment key={i}>
-            <a href={item.link}>
+            <a href={item.link} target="_blank">
               <item.icon />
             </a>
           </Fragment>
