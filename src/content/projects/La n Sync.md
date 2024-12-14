@@ -33,6 +33,10 @@ Additionally, the system features an administrative panel for managing Grant Wri
 * TanStack Query
 * Figma
 
+---
+
+### Images related to the project
+
 ![la-n-sync](/projects/la-n-sync-2.webp)
 
 ![la-n-sync](/projects/la-n-sync-3.webp)

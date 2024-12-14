@@ -27,5 +27,9 @@ Developed landing pages including all Calhome Program information for the City o
 * Astro
 * Tailwind
 
+---
+
+### Images related to the project
+
 ![calhome-lp](/projects/calhome-lp-1.webp)
 ![calhome-lp](/projects/calhome-lp-2.webp)
